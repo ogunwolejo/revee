@@ -24,7 +24,7 @@ export const FAQ: NamedExoticComponent = memo(() => {
       <div className="absolute inset-0"></div>
       <div className="w-full h-full p-12 md:p-16 lg:p-12 xl:p-24 flex flex-col lg:flex-row justify-start items-start lg:justify-between lg:items-center gap-4 lg:gap-0">
         <div id="faq_container" className="space-y-4 lg:space-y-8">
-          <h2 className="text-white text-5xl font-paytone leading-[60px]">
+          <h2 className="text-white text-5xl xl:text-7xl font-paytone leading-[60px]">
             FAQs
           </h2>
           <p className="text-white w-full lg:w-[216px] xl:w-[266px] text-base font-dm-sans">
@@ -36,6 +36,7 @@ export const FAQ: NamedExoticComponent = memo(() => {
             </p>
             <DownloadAppBtn classes="border-white bg-white font-dm-sans font-bold text-black rounded-xl h-12 w-[186px] inline-flex justify-center items-center cursor-pointer !outline-none !ring-0" />
           </div>
+          {/** TODO: scroll indicator */}
         </div>
         <div id="faq_questions_container" className="space-y-4 lg:space-y-6">
           {faqQuestions.map((question, idx) => (
