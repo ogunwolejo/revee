@@ -3,7 +3,7 @@
 import * as motion from "motion/react-client";
 import Image from "next/image";
 import { memo, NamedExoticComponent } from "react";
-import { visibilityAnimation } from "../libs/motion";
+import { visibilityAnimation } from "../../../libs/motion";
 
 export const AppLogo: NamedExoticComponent<{
   textAnimationComplete?: boolean;

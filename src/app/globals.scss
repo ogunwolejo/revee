@@ -4,12 +4,18 @@
   --background: #ffffff;
   --foreground: #171717;
   --white: #FFFFFF;
+  --purple: #4F0072;
+  --question: #CA92E3; 
+  --question-shade: #5D0186;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-white: var(--white);
+  --color-purple: var(--purple);
+  --color-question: var(--question);
+  --color-question-shade: var(--question-shade);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);

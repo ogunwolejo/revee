@@ -1,4 +1,9 @@
 #slide_arrow {
+  perspective: 1000px;
+  h3 {
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
   height: calc(100vh - 250px);
 
   @media screen and (min-width: 2560px) {
