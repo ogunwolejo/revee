@@ -28,3 +28,15 @@ export const child = {
     },
   },
 };
+
+// visibility animation
+export const visibilityAnimation = {
+  initial: { opacity: 0, scale: 0 },
+  animate: { opacity: 1, scale: 1 },
+  transition: {
+    type: "spring",
+    duration: 0.4,
+    scale: { type: "spring", visualDuration: 0.3, bounce: 0.3 },
+    delay: 0.1,
+  },
+};

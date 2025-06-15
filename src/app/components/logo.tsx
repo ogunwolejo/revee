@@ -3,14 +3,15 @@
 import * as motion from "motion/react-client";
 import Image from "next/image";
 import { memo, NamedExoticComponent } from "react";
+import { visibilityAnimation } from "../libs/motion";
 
 export const AppLogo: NamedExoticComponent<{
   textAnimationComplete?: boolean;
 }> = memo(({ textAnimationComplete = true }) => (
   <motion.div
     id="logo_container"
-    initial={{ opacity: 0, scale: 0 }}
-    animate={textAnimationComplete ? { opacity: 1, scale: 1 } : {}}
+    initial={visibilityAnimation.initial}
+    animate={textAnimationComplete ? visibilityAnimation.animate : {}}
     transition={{
       type: "spring",
       duration: 0.4,
@@ -22,7 +23,7 @@ export const AppLogo: NamedExoticComponent<{
       src="/svg/logo.svg"
       alt="logo"
       priority
-      className="size-[40px] md:size-[50px] lg:size-[80] xl:size-[120px]"
+      className="size-[50px] lg:size-[80] xl:size-[120px]"
       width={120}
       height={120}
     />
