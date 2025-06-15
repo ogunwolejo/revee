@@ -1,9 +1,11 @@
 "use client";
 
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
+import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-client";
 import Image from "next/image";
-import { useState } from "react";
+import Script from "next/script";
+import { useLayoutEffect, useMemo, useState } from "react";
 import { CountryMoney } from "./components/country-money";
 import { DownloadAppBtn } from "./components/download-app-btn";
 import { AppLogo } from "./components/logo";
@@ -12,23 +14,177 @@ import { Transaction } from "./components/transaction";
 import { child, container, visibilityAnimation } from "./libs/motion";
 import "./page.scss";
 
+interface LayoutContent {
+  bgImages: string;
+  navigationContent: {
+    left: string;
+    right: string;
+  };
+  phoneFrame: {
+    transaction: {
+      image: string;
+      amount: string;
+      time: string;
+      label: string;
+    };
+    main: {
+      flagImg: string;
+      amount: string;
+      positioning: "left" | "right";
+    };
+  };
+}
+
 export default function Home() {
   const [textAnimationComplete, setTextAnimationComplete] =
     useState<boolean>(false);
+  const [bgIndex, setBgIndex] = useState<number>(0);
   const text = "Send. Shop. Spend";
   const letters = Array.from(text);
 
+  const layoutContent: LayoutContent[] = useMemo(
+    () =>
+      [
+        {
+          bgImages: "/svg/sliderA.svg",
+          navigationContent: {
+            left: "Canada",
+            right: "Nigeria",
+          },
+          phoneFrame: {
+            main: {
+              amount: "+C$750",
+              flagImg: "/png/canada.png",
+              positioning: "left",
+            },
+            transaction: {
+              amount: "-₦862,912.94",
+              image: "/png/gtbank.png",
+              label: "Transfer to Lil Sis",
+              time: "Yesterday, 1:28 AM",
+            },
+          },
+        },
+        {
+          bgImages: "/svg/sliderB.svg",
+          navigationContent: {
+            left: "Canada",
+            right: "Ghana",
+          },
+          phoneFrame: {
+            main: {
+              amount: "+₵3,920",
+              flagImg: "/png/flags/ghana.png",
+              positioning: "right",
+            },
+            transaction: {
+              amount: "-C$440.11",
+              image: "/png/absa.png",
+              label: "Online transaction",
+              time: "Today, 9:45 AM",
+            },
+          },
+        },
+        {
+          bgImages: "/svg/sliderC.svg",
+          navigationContent: {
+            left: "Nigeria",
+            right: "Ghana",
+          },
+          phoneFrame: {
+            main: {
+              amount: "-₦98,000",
+              flagImg: "/png/flags/nigeria.png",
+              positioning: "left",
+            },
+            transaction: {
+              amount: "-₵760.87",
+              image: "/png/mcdonalds.png",
+              label: "Paid at KFC",
+              time: "Today, 11:28 AM",
+            },
+          },
+        },
+        {
+          bgImages: "/svg/sliderD.svg",
+          navigationContent: {
+            left: "Nigeria",
+            right: "Nigeria",
+          },
+          phoneFrame: {
+            main: {
+              amount: "-₦17,000",
+              flagImg: "/png/flags/nigeria.png",
+              positioning: "right",
+            },
+            transaction: {
+              amount: "+₦17,000",
+              image: "/png/mtn.png",
+              label: "Airtime top-up",
+              time: "Today, 3:15 PM",
+            },
+          },
+        },
+      ] as LayoutContent[],
+    []
+  );
+
+  // prefetched all the images
+  const prefetchScript = useMemo(
+    () => (
+      <Script
+        id="prefetch-images"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            ${layoutContent
+              .map(
+                (content) => `
+              const img${content.bgImages.replace(/\W/g, "_")} = new Image();
+              img${content.bgImages.replace(/\W/g, "_")}.src = '${
+                  content.bgImages
+                }';
+            `
+              )
+              .join("")}
+          `,
+        }}
+      />
+    ),
+    [layoutContent]
+  );
+
+  // Change image every 10 seconds
+  useLayoutEffect(() => {
+    const interval = setInterval(() => {
+      setBgIndex((prevIndex) => (prevIndex + 1) % layoutContent.length);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [layoutContent.length]);
+
   return (
     <div className="relative min-h-screen border-box">
+      {prefetchScript}
       <div className="absolute inset-0 bg-black/50 z-0">
-        <Image
-          src="/svg/sliderA.svg"
-          alt="hero"
-          className="w-full h-full object-cover"
-          width={100}
-          height={100}
-          priority
-        />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={bgIndex}
+            initial={{ opacity: 0.8 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full"
+          >
+            <Image
+              src={layoutContent[bgIndex].bgImages}
+              alt="hero"
+              className="w-full h-full object-cover"
+              width={100}
+              height={100}
+              priority
+            />
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* ------------------- start of the content on the background ------------------------------------------------------------ */}
@@ -66,7 +222,7 @@ export default function Home() {
           arrow={
             <ArrowRightIcon className="size-[42px] lg:size-[52px] text-white stroke-white" />
           }
-          label="Canada"
+          label={layoutContent[bgIndex].navigationContent.left}
         />
       </motion.div>
 
@@ -92,7 +248,7 @@ export default function Home() {
           arrow={
             <ArrowLeftIcon className="size-[42px] lg:size-[52px] text-white stroke-white" />
           }
-          label="Canada"
+          label={layoutContent[bgIndex].navigationContent.right}
           positioning="right"
         />
       </motion.div>
@@ -124,9 +280,20 @@ export default function Home() {
         className="backdrop-brightness-200 border-b-0 border-t-8 border-l-0 md:border-l-8 border-r-8 border-white absolute bottom-0 rounded-r-4xl md:rounded-t-4xl w-5/6 md:w-4/6 lg:w-4/8 xl:w-[480px] 2xl:w-[580px] left-0 md:left-35 lg:left-[30%] xl:left-[37%] flex flex-col justify-center items-between px-1 md:px-4"
       >
         <div className="">
-          <CountryMoney flag="" money="" shouldReverse={true} />
+          <CountryMoney
+            flag={layoutContent[bgIndex].phoneFrame.main.flagImg}
+            money={layoutContent[bgIndex].phoneFrame.main.amount}
+            shouldReverse={
+              layoutContent[bgIndex].phoneFrame.main.positioning === "left"
+            }
+          />
           <div className="w-full fixed bottom-10">
-            <Transaction />
+            <Transaction
+              amount={layoutContent[bgIndex].phoneFrame.transaction.amount}
+              content={layoutContent[bgIndex].phoneFrame.transaction.label}
+              logo={layoutContent[bgIndex].phoneFrame.transaction.image}
+              time={layoutContent[bgIndex].phoneFrame.transaction.time}
+            />
           </div>
         </div>
       </motion.div>

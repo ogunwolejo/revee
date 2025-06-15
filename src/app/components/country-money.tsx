@@ -21,14 +21,17 @@ export const CountryMoney: NamedExoticComponent<Props> = memo(
           className="rounded-full size-16 lg:size-20 items-center border border-white border-4"
         >
           <Image
-            src="/png/canada.png"
+            src={flag}
             alt="canada flag"
-            className="object-cover h-full w-full"
+            className="object-cover h-full w-full rounded-full"
             width={52}
             height={52}
+            priority={false}
           />
         </div>
-        <h3 className="text-white font-paytone text-5xl xl:text-7xl">+C$750</h3>
+        <h3 className="text-white font-paytone text-5xl xl:text-7xl">
+          {money}
+        </h3>
       </div>
     );
   }
