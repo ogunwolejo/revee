@@ -24,7 +24,6 @@ export const CountryMoney: NamedExoticComponent<Props> = memo(
         animate={{
           x: 0,
           boxShadow: "0 0 0 rgba(255,255,255,0)",
-          ease: slideDirection === "left" ? "easeIn" : "easeOut",
         }}
         transition={{
           type: "spring",
