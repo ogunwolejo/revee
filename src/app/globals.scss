@@ -8,6 +8,8 @@
   --question: #CA92E3; 
   --question-shade: #5D0186;
   --gray-section: #F2F2F2;
+  --light-green: #04B159;
+  --dark-green: #004F53;
 }
 
 @theme inline {
@@ -18,6 +20,8 @@
   --color-question: var(--question);
   --color-question-shade: var(--question-shade);
   --color-gray-section: var(--gray-section);
+  --color-lightgreen: var(--light-green);
+  --color-darkgreen: var(--dark-green);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);

@@ -91,7 +91,7 @@ export const ShopOnline = () => {
       className="min-h-screen h-screen w-full px-12 md:px-16 lg:px-12 xl:px-24 py-6 md:py-0 bg-gray-section relative"
       ref={mainRef}
     >
-      <div className="absolute inset-0 bg-black/10 z-0"></div>
+      <div className="absolute inset-0 bg-white/10 z-0"></div>
       <motion.section
         id="shop-content"
         className="flex flex-col md:flex-row justify-between xl:justify-start items-center w-full h-full 2xl:gap-48"
@@ -151,12 +151,13 @@ export const ShopOnline = () => {
         >
           {/* Main iPhone image */}
           <motion.div
+            className="absolute bottom-0 md:left-[47%] lg:left-[45%] xl:left-[40%]"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
             <Image
               src="/png/shop/iPhone.png"
-              className="w-[432px] 2xl:w-[600px]"
+              className="w-[400px] lg:w-[432px]"
               alt="iphone"
               width={100}
               height={100}

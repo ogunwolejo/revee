@@ -13,6 +13,7 @@ import { SlideArrow } from "./components/ui/atoms/slide.arrows";
 import { Transaction } from "./components/ui/atoms/transaction";
 import { FAQ } from "./components/ui/organism/faqs";
 import { Footer } from "./components/ui/organism/footer";
+import { Home as HomeView } from "./components/ui/organism/home";
 import { PayBills } from "./components/ui/organism/pay.bills";
 import { ShopOnline } from "./components/ui/organism/shop-online";
 import { child, container, visibilityAnimation } from "./libs/motion";
@@ -314,6 +315,7 @@ export default function Home() {
           </div>
         </motion.div>
       </div>
+      <HomeView />
       <ShopOnline />
       <PayBills />
       <FAQ />

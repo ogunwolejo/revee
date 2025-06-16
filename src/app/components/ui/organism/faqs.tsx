@@ -3,6 +3,7 @@
 import { Fragment, memo, NamedExoticComponent } from "react";
 import { DownloadAppBtn } from "../atoms/download-app-btn";
 import { FaqQuestion } from "../atoms/faq.question";
+import { PointerIndicator } from "../atoms/indicator/pointer.indicator";
 
 export const FAQ: NamedExoticComponent = memo(() => {
   const faqQuestions: string[] = [
@@ -36,7 +37,7 @@ export const FAQ: NamedExoticComponent = memo(() => {
             </p>
             <DownloadAppBtn classes="border-white bg-white font-dm-sans font-bold text-black rounded-xl h-12 w-[186px] inline-flex justify-center items-center cursor-pointer !outline-none !ring-0" />
           </div>
-          {/** TODO: scroll indicator */}
+          <PointerIndicator />
         </div>
         <div id="faq_questions_container" className="space-y-4 lg:space-y-6">
           {faqQuestions.map((question, idx) => (
