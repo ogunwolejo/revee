@@ -19,7 +19,7 @@ export const CurrencyCard: NamedExoticComponent<CurrencyCardProps> = memo(
       <div
         id="card-container"
         className={clsx(
-          "w-[328px] h-[180px] p-4 lg:p-6 flex flex-col justify-between items-start",
+          "w-[328px] h-[180px] p-4 lg:p-6 flex flex-col justify-between items-start rounded-md",
           classes
         )}
       >
@@ -30,6 +30,8 @@ export const CurrencyCard: NamedExoticComponent<CurrencyCardProps> = memo(
                 src={flag}
                 alt={`${country} flag`}
                 className="object-cover rounded-full"
+                width={32}
+                height={32}
               />
             </div>
             <h6 className="font-bold font-paytone text-base lg:text-lg text-white uppercase">
