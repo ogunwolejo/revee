@@ -19,7 +19,7 @@ export const CurrencyCard: NamedExoticComponent<CurrencyCardProps> = memo(
       <div
         id="card-container"
         className={clsx(
-          "w-[328px] h-[180px] p-4 lg:p-6 flex flex-col justify-between items-start rounded-md",
+          "w-[328px] h-[180px] p-4 lg:p-6 flex flex-col justify-between items-start rounded-xl",
           classes
         )}
       >
@@ -45,7 +45,7 @@ export const CurrencyCard: NamedExoticComponent<CurrencyCardProps> = memo(
         </section>
 
         <section className="flex justify-between items-center w-full">
-          <p className="font-bold text-sm lg:text-base font-roboto text-white">
+          <p className="font-normal text-sm font-roboto text-white">
             {country}
           </p>
           {image === "visa" ? (

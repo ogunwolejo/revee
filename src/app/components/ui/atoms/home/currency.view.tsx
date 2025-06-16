@@ -41,15 +41,40 @@ export const CurrencyView = () => {
               height={836}
               priority
             />
-
-            <CurrencyCard
-              flag="/png/flags/canada.png"
-              amount="$1,000"
-              country="Canada"
-              countryCode="CAD"
-              image="visa"
-              classes="bg-gradient-to-tr from-[#00C5FF] to-[#8E3BF9]"
-            />
+            <div className="space-y-4 absolute bottom-[25%] left-15 ">
+              <CurrencyCard
+                flag="/png/flags/nigeria.png"
+                amount="₦1,098,000"
+                country="Nigerian Naira"
+                countryCode="NGN"
+                image="visa"
+                classes="bg-gradient-to-tr from-[#9B51E0] to-[#EB5757]"
+              />
+              <CurrencyCard
+                flag="/png/flags/ghana.png"
+                amount="CFA 660,000"
+                country="West African CFA franc"
+                countryCode="GHS"
+                image="mastercard"
+                classes="bg-gradient-to-tr from-[#04B159] to-[#215CFF]"
+              />
+              <CurrencyCard
+                flag="/png/flags/canada.png"
+                amount="C$750"
+                country="Candian Dollars"
+                countryCode="CAD"
+                image="visa"
+                classes="bg-gradient-to-tr from-[#C1450B] to-[#E5A80F]"
+              />
+              <CurrencyCard
+                flag="/png/flags/canada.png"
+                amount="C$750"
+                country="Candian Dollars"
+                countryCode="CAD"
+                image="mastercard"
+                classes="bg-gradient-to-tr from-[#00C5FF] to-[#8E3BF9]"
+              />
+            </div>
           </div>
         </div>
 
