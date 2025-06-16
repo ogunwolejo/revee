@@ -5,7 +5,7 @@ import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-client";
 import Image from "next/image";
 //import Script from "next/script";
-import { Fragment, useLayoutEffect, useMemo, useState } from "react";
+import { Fragment, useLayoutEffect, useState } from "react";
 import { CountryMoney } from "./components/ui/atoms/country-money";
 import { DownloadAppBtn } from "./components/ui/atoms/download-app-btn";
 import { AppLogo } from "./components/ui/atoms/logo";
@@ -53,117 +53,88 @@ export default function Home() {
   const text = "Send. Shop. Spend";
   const letters = Array.from(text);
 
-  const layoutContent: LayoutContent[] = useMemo(
-    () =>
-      [
-        {
-          bgImages: "/svg/sliderA.svg",
-          navigationContent: {
-            left: "Canada",
-            right: "Nigeria",
-          },
-          phoneFrame: {
-            main: {
-              amount: "+C$750",
-              flagImg: "/png/canada.png",
-              positioning: "left",
-            },
-            transaction: {
-              amount: "-₦862,912.94",
-              image: "/png/gtbank.png",
-              label: "Transfer to Lil Sis",
-              time: "Yesterday, 1:28 AM",
-            },
-          },
+  const layoutContent: LayoutContent[] = [
+    {
+      bgImages: "/svg/sliderA.svg",
+      navigationContent: {
+        left: "Canada",
+        right: "Nigeria",
+      },
+      phoneFrame: {
+        main: {
+          amount: "+C$750",
+          flagImg: "/png/canada.png",
+          positioning: "left",
         },
-        {
-          bgImages: "/svg/sliderB.svg",
-          navigationContent: {
-            left: "Canada",
-            right: "Ghana",
-          },
-          phoneFrame: {
-            main: {
-              amount: "+₵3,920",
-              flagImg: "/png/flags/ghana.png",
-              positioning: "right",
-            },
-            transaction: {
-              amount: "-C$440.11",
-              image: "/png/absa.png",
-              label: "Online transaction",
-              time: "Today, 9:45 AM",
-            },
-          },
+        transaction: {
+          amount: "-₦862,912.94",
+          image: "/png/gtbank.png",
+          label: "Transfer to Lil Sis",
+          time: "Yesterday, 1:28 AM",
         },
-        {
-          bgImages: "/svg/sliderC.svg",
-          navigationContent: {
-            left: "Nigeria",
-            right: "Ghana",
-          },
-          phoneFrame: {
-            main: {
-              amount: "-₦98,000",
-              flagImg: "/png/flags/nigeria.png",
-              positioning: "left",
-            },
-            transaction: {
-              amount: "-₵760.87",
-              image: "/png/mcdonalds.png",
-              label: "Paid at KFC",
-              time: "Today, 11:28 AM",
-            },
-          },
+      },
+    },
+    {
+      bgImages: "/svg/sliderB.svg",
+      navigationContent: {
+        left: "Canada",
+        right: "Ghana",
+      },
+      phoneFrame: {
+        main: {
+          amount: "+₵3,920",
+          flagImg: "/png/flags/ghana.png",
+          positioning: "right",
         },
-        {
-          bgImages: "/svg/sliderD.svg",
-          navigationContent: {
-            left: "Nigeria",
-            right: "Nigeria",
-          },
-          phoneFrame: {
-            main: {
-              amount: "-₦17,000",
-              flagImg: "/png/flags/nigeria.png",
-              positioning: "right",
-            },
-            transaction: {
-              amount: "+₦17,000",
-              image: "/png/mtn.png",
-              label: "Airtime top-up",
-              time: "Today, 3:15 PM",
-            },
-          },
+        transaction: {
+          amount: "-C$440.11",
+          image: "/png/absa.png",
+          label: "Online transaction",
+          time: "Today, 9:45 AM",
         },
-      ] as LayoutContent[],
-    []
-  );
-
-  // prefetched all the images
-  // const prefetchScript = useMemo(
-  //   () => (
-  //     <Script
-  //       id="prefetch-images"
-  //       strategy="beforeInteractive"
-  //       dangerouslySetInnerHTML={{
-  //         __html: `
-  //           ${layoutContent
-  //             .map(
-  //               (content) => `
-  //             const img${content.bgImages.replace(/\W/g, "_")} = new Image();
-  //             img${content.bgImages.replace(/\W/g, "_")}.src = '${
-  //                 content.bgImages
-  //               }';
-  //           `
-  //             )
-  //             .join("")}
-  //         `,
-  //       }}
-  //     />
-  //   ),
-  //   [layoutContent]
-  // );
+      },
+    },
+    {
+      bgImages: "/svg/sliderC.svg",
+      navigationContent: {
+        left: "Nigeria",
+        right: "Ghana",
+      },
+      phoneFrame: {
+        main: {
+          amount: "-₦98,000",
+          flagImg: "/png/flags/nigeria.png",
+          positioning: "left",
+        },
+        transaction: {
+          amount: "-₵760.87",
+          image: "/png/mcdonalds.png",
+          label: "Paid at KFC",
+          time: "Today, 11:28 AM",
+        },
+      },
+    },
+    {
+      bgImages: "/svg/sliderD.svg",
+      navigationContent: {
+        left: "Nigeria",
+        right: "Nigeria",
+      },
+      phoneFrame: {
+        main: {
+          amount: "-₦17,000",
+          flagImg: "/png/flags/nigeria.png",
+          positioning: "right",
+        },
+        transaction: {
+          amount: "+₦17,000",
+          image: "/png/mtn.png",
+          label: "Airtime top-up",
+          time: "Today, 3:15 PM",
+        },
+      },
+    },
+  ];
 
   // Change image every 10 seconds
   useLayoutEffect(() => {
@@ -179,7 +150,6 @@ export default function Home() {
   return (
     <Fragment>
       <div className="relative min-h-screen border-box">
-        {/* {prefetchScript} */}
         <div className="absolute inset-0 bg-black/50 z-0">
           <AnimatePresence mode="wait">
             <motion.div
