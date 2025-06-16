@@ -16,6 +16,7 @@ import { Footer } from "./components/ui/organism/footer";
 import { PayBills } from "./components/ui/organism/pay.bills";
 import { child, container, visibilityAnimation } from "./libs/motion";
 import "./page.scss";
+import { ShopOnline } from "./components/ui/organism/shop-online";
 
 interface LayoutContent {
   bgImages: string;
@@ -313,6 +314,7 @@ export default function Home() {
           </div>
         </motion.div>
       </div>
+      <ShopOnline />
       <PayBills />
       <FAQ />
       <Footer />

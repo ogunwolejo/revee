@@ -8,6 +8,7 @@ export const DownloadAppBtn: NamedExoticComponent<{
   text?: string;
 }> = memo(({ classes = "", text = "Download the app" }) => (
   <button
+    type="button"
     role="button"
     aria-disabled={false}
     aria-modal={false}

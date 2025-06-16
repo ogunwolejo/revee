@@ -7,6 +7,7 @@
   --purple: #4F0072;
   --question: #CA92E3; 
   --question-shade: #5D0186;
+  --gray-section: #F2F2F2;
 }
 
 @theme inline {
@@ -16,6 +17,7 @@
   --color-purple: var(--purple);
   --color-question: var(--question);
   --color-question-shade: var(--question-shade);
+  --color-gray-section: var(--gray-section);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
