@@ -3,6 +3,8 @@
  * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  **/
 
+import { Variants } from "motion/debug";
+
 //import { Variants } from "motion/react";
 
 // making each letter to be visible ne-by-one
@@ -16,7 +18,7 @@ export const container = {
   },
 };
 
-export const child = {
+export const child: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,

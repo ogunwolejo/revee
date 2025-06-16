@@ -1,6 +1,6 @@
 "use client";
 
-import { useAnimation, useInView } from "motion/react";
+import { useAnimation, useInView, Variants } from "motion/react";
 import * as motion from "motion/react-client";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -49,7 +49,7 @@ export const ShopOnline = () => {
     },
   };
 
-  const item = {
+  const item: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -61,7 +61,7 @@ export const ShopOnline = () => {
     },
   };
 
-  const slideIn = {
+  const slideIn: Variants = {
     hidden: { opacity: 0, x: 50 },
     visible: {
       opacity: 1,
@@ -73,7 +73,7 @@ export const ShopOnline = () => {
     },
   };
 
-  const galleryItem = {
+  const galleryItem: Variants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,

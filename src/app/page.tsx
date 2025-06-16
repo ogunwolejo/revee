@@ -229,7 +229,12 @@ export default function Home() {
         <motion.div
           initial={visibilityAnimation.initial}
           animate={textAnimationComplete ? visibilityAnimation.animate : {}}
-          transition={visibilityAnimation.transition}
+          transition={{
+            type: "spring",
+            duration: 0.4,
+            scale: { type: "spring", visualDuration: 0.3, bounce: 0.3 },
+            delay: 0.1,
+          }}
           className="absolute left-5 lg:left-10 bottom-0"
         >
           <SlideArrow
@@ -244,7 +249,12 @@ export default function Home() {
         <motion.p
           initial={visibilityAnimation.initial}
           animate={textAnimationComplete ? visibilityAnimation.animate : {}}
-          transition={visibilityAnimation.transition}
+          transition={{
+            type: "spring",
+            duration: 0.4,
+            scale: { type: "spring", visualDuration: 0.3, bounce: 0.3 },
+            delay: 0.1,
+          }}
           className="font-dm-sans font-medium absolute bottom-20 left-5 lg:left-10 text-white hidden lg:block w-[260px] p-1"
         >
           Seamlessly bridge distances with our effortless remittance service.
@@ -256,7 +266,12 @@ export default function Home() {
         <motion.div
           initial={visibilityAnimation.initial}
           animate={textAnimationComplete ? visibilityAnimation.animate : {}}
-          transition={visibilityAnimation.transition}
+          transition={{
+            type: "spring",
+            duration: 0.4,
+            scale: { type: "spring", visualDuration: 0.3, bounce: 0.3 },
+            delay: 0.1,
+          }}
           className="absolute right-0 md:right-5 lg:right-5 xl:right-10 bottom-0"
         >
           <SlideArrow
@@ -272,7 +287,12 @@ export default function Home() {
         <motion.div
           initial={visibilityAnimation.initial}
           animate={textAnimationComplete ? visibilityAnimation.animate : {}}
-          transition={visibilityAnimation.transition}
+          transition={{
+            type: "spring",
+            duration: 0.4,
+            scale: { type: "spring", visualDuration: 0.3, bounce: 0.3 },
+            delay: 0.1,
+          }}
           className="flex flex-col justify-start items-start gap-2 absolute bottom-[80%] lg:bottom-20 right-10 md:right-25 lg:right-5 xl:right-10 lg:w-[180px] xl:w-[186px]"
         >
           <p className="text-white/52 font-dm-sans font-normal text-sm md:text-base lg:tracking-tight xl:tracking-normal">
