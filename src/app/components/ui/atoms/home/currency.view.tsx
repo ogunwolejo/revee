@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { CurrencyCard } from "./currency-card";
 
 export const CurrencyView = () => {
   return (
@@ -30,14 +31,26 @@ export const CurrencyView = () => {
         </div>
 
         {/*************** middle side content ***************/}
-        <Image
-          src="/svg/wallet-iphone.svg"
-          alt="wallet-iphone"
-          className="absolute bottom-0 left-[40%] hidden xl:block"
-          width={432}
-          height={836}
-          priority
-        />
+        <div className="absolute bottom-0 left-[40%] hidden xl:block">
+          <div className="relative">
+            <Image
+              src="/svg/wallet-iphone.svg"
+              alt="wallet-iphone"
+              className=""
+              width={432}
+              height={836}
+              priority
+            />
+
+            <CurrencyCard
+              flag="/svg/flags/us.svg"
+              amount="$1,000"
+              country="United States"
+              countryCode="USD"
+              image="visa"
+            />
+          </div>
+        </div>
 
         {/*************** end side content ***************/}
         <Image

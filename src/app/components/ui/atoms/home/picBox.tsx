@@ -14,3 +14,5 @@ export const PicBox: NamedExoticComponent<{ src: string }> = memo(({ src }) => {
     </div>
   );
 });
+
+PicBox.displayName = "PicBox";

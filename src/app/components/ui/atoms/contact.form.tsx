@@ -18,7 +18,7 @@ export const ContactForm: NamedExoticComponent = memo(() => (
         </h2>
         <section className="flex flex-col justify-start items-start space-y-4 lg:space-y-8 text-white">
           <p className="font-normal font-dm-sans text-base">
-            Do you have any questions or feedback? We'd love to hear from you.
+            Do you have any questions or feedback?We'd love to hear from you.
           </p>
           <div className="list-none space-y-4">
             <ContactListItem
@@ -37,7 +37,7 @@ export const ContactForm: NamedExoticComponent = memo(() => (
           </div>
         </section>
       </div>
-      <div className="w-full md:w-[400px] xl:w[600px] px-2 mt-4  md:mt-0">
+      <div className="w-full md:w-[400px] xl:w-[600px] px-2 mt-4  md:mt-0">
         <form className="flex flex-col justify-between h-full w-full space-y-4 md:space-y-0">
           <ContactInput label="Fullname" placeholder="firstname lastname" />
           <ContactInput
@@ -48,7 +48,6 @@ export const ContactForm: NamedExoticComponent = memo(() => (
           <button
             role="button"
             aria-disabled={false}
-            aria-modal={false}
             aria-pressed="true"
             className="border-white bg-white font-dm-sans font-bold text-black rounded-xl h-12 w-[186px] inline-flex justify-center items-center cursor-pointer !outline-none !ring-0 w-full"
           >

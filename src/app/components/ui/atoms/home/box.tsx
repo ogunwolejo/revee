@@ -23,3 +23,5 @@ export const Box: NamedExoticComponent<Props> = memo(
     );
   }
 );
+
+Box.displayName = "Box";

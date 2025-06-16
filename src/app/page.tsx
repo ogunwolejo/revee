@@ -174,7 +174,7 @@ export default function Home() {
     }, 10000);
 
     return () => clearInterval(interval);
-  }, [layoutContent, layoutContent.length]);
+  }, [layoutContent, layoutContent.length, bgIndex]);
 
   return (
     <Fragment>

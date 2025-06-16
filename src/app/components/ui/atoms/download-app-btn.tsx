@@ -11,7 +11,6 @@ export const DownloadAppBtn: NamedExoticComponent<{
     type="button"
     role="button"
     aria-disabled={false}
-    aria-modal={false}
     aria-pressed="true"
     id="download_btn"
     className={clsx(classes)}

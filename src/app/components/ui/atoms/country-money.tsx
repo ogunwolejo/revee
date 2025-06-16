@@ -13,18 +13,18 @@ interface Props {
 export const CountryMoney: NamedExoticComponent<Props> = memo(
   ({ flag, money, shouldReverse = false, slideDirection }) => {
     // Velocity-based animation parameters
-    const slideConfig = {
-      left: {
-        initialVelocity: -3, // Starts fast moving right-to-left
-        deceleration: 0.015, // Gradual slowdown
-        overshoot: 0.5, // Slight bounce-back
-      },
-      right: {
-        initialVelocity: 3, // Starts fast moving left-to-right
-        deceleration: 0.02, // Slightly faster slowdown
-        overshoot: 0.3,
-      },
-    };
+    // const slideConfig = {
+    //   left: {
+    //     initialVelocity: -3, // Starts fast moving right-to-left
+    //     deceleration: 0.015, // Gradual slowdown
+    //     overshoot: 0.5, // Slight bounce-back
+    //   },
+    //   right: {
+    //     initialVelocity: 3, // Starts fast moving left-to-right
+    //     deceleration: 0.02, // Slightly faster slowdown
+    //     overshoot: 0.3,
+    //   },
+    // };
 
     return (
       <motion.div
