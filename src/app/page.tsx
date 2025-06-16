@@ -14,9 +14,9 @@ import { Transaction } from "./components/ui/atoms/transaction";
 import { FAQ } from "./components/ui/organism/faqs";
 import { Footer } from "./components/ui/organism/footer";
 import { PayBills } from "./components/ui/organism/pay.bills";
+import { ShopOnline } from "./components/ui/organism/shop-online";
 import { child, container, visibilityAnimation } from "./libs/motion";
 import "./page.scss";
-import { ShopOnline } from "./components/ui/organism/shop-online";
 
 interface LayoutContent {
   bgImages: string;
@@ -277,7 +277,7 @@ export default function Home() {
           <p className="text-white/52 font-dm-sans font-normal text-sm md:text-base lg:tracking-tight xl:tracking-normal">
             Get Revve on your phone
           </p>
-          <DownloadAppBtn classes="border-4 border-white font-dm-sans font-bold text-white rounded-xl h-12 p-4 inline-flex justify-center items-center cursor-pointer !outline-none !ring-0" />
+          <DownloadAppBtn classes="border-2 border-white font-dm-sans font-bold text-white hover:text-black hover:bg-white rounded-xl h-12 p-4 inline-flex justify-center items-center cursor-pointer !outline-none !ring-0" />
         </motion.div>
         {/* ------------------- start of the right side navigation ------------------------------------------------------------ */}
 

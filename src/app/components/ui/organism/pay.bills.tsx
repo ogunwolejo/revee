@@ -1,5 +1,6 @@
 "use client";
 
+import * as motion from "motion/react-client";
 import Image from "next/image";
 import { NamedExoticComponent, memo } from "react";
 import { DownloadAppBtn } from "../atoms/download-app-btn";
@@ -24,10 +25,33 @@ export const PayBills: NamedExoticComponent = memo(() => {
         id="pay-bills-content"
         className="flex flex-col md:flex-row justify-between items-center w-full h-full relative"
       >
-        <div className="h-[400px] xl:h-[600px] flex flex-col justify-between items-start p-2">
-          <h2 className="text-5xl xl:text-7xl font-paytone text-white">
+        <motion.div
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ amount: 0.8 }}
+          className="h-[400px] xl:h-[600px] flex flex-col justify-between items-start p-2"
+        >
+          <motion.h2
+            variants={{
+              offscreen: {
+                y: 0,
+                opacity: 0,
+                scale: 0,
+              },
+              onscreen: {
+                y: 10,
+                scale: 1,
+                opacity: 1,
+                transition: {
+                  duration: 0.6,
+                  scale: { type: "spring", visualDuration: 0.4, bounce: 0.4 },
+                },
+              },
+            }}
+            className="text-5xl xl:text-7xl font-paytone text-white"
+          >
             Pay bills
-          </h2>
+          </motion.h2>
           <p className="w-[280px] lg:w-[333px] font-normal font-dm-sans text-base text-white">
             Say goodbye to long queues and endless processes—our platform offers
             a seamless solution for paying bills instantly without any hiccups.
@@ -41,7 +65,7 @@ export const PayBills: NamedExoticComponent = memo(() => {
               classes="border-white bg-white font-dm-sans font-bold text-black rounded-xl h-12 w-[186px] inline-flex justify-center items-center cursor-pointer !outline-none !ring-0"
             />
           </div>
-        </div>
+        </motion.div>
         <Image
           src="/svg/calender.svg"
           alt="calender"
