@@ -12,20 +12,6 @@ interface Props {
 
 export const CountryMoney: NamedExoticComponent<Props> = memo(
   ({ flag, money, shouldReverse = false, slideDirection }) => {
-    // Velocity-based animation parameters
-    // const slideConfig = {
-    //   left: {
-    //     initialVelocity: -3, // Starts fast moving right-to-left
-    //     deceleration: 0.015, // Gradual slowdown
-    //     overshoot: 0.5, // Slight bounce-back
-    //   },
-    //   right: {
-    //     initialVelocity: 3, // Starts fast moving left-to-right
-    //     deceleration: 0.02, // Slightly faster slowdown
-    //     overshoot: 0.3,
-    //   },
-    // };
-
     return (
       <motion.div
         initial={{
@@ -38,10 +24,7 @@ export const CountryMoney: NamedExoticComponent<Props> = memo(
         animate={{
           x: 0,
           boxShadow: "0 0 0 rgba(255,255,255,0)",
-          ease:
-            slideDirection === "left"
-              ? [0.17, 0.67, 0.83, 0.67]
-              : [0.83, 0.67, 0.17, 0.67],
+          ease: slideDirection === "left" ? "easeIn" : "easeOut",
         }}
         transition={{
           type: "spring",
