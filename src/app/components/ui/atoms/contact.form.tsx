@@ -18,7 +18,8 @@ export const ContactForm: NamedExoticComponent = memo(() => (
         </h2>
         <section className="flex flex-col justify-start items-start space-y-4 lg:space-y-8 text-white">
           <p className="font-normal font-dm-sans text-base">
-            Do you have any questions or feedback?We'd love to hear from you.
+            Do you have any questions or feedback?We &apos;d love to hear from
+            you.
           </p>
           <div className="list-none space-y-4">
             <ContactListItem

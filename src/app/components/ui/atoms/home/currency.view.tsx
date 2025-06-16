@@ -43,11 +43,12 @@ export const CurrencyView = () => {
             />
 
             <CurrencyCard
-              flag="/svg/flags/us.svg"
+              flag="/png/flags/canada.png"
               amount="$1,000"
-              country="United States"
-              countryCode="USD"
+              country="Canada"
+              countryCode="CAD"
               image="visa"
+              classes="bg-gradient-to-tr from-[#00C5FF] to-[#8E3BF9]"
             />
           </div>
         </div>

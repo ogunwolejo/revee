@@ -125,8 +125,8 @@ export const ShopOnline = () => {
               variants={item}
             >
               From the latest fashion trends to must-have gadgets, shop the
-              world's best brands and products from the comfort of your own
-              home.
+              world &apos;s best brands and products from the comfort of your
+              own home.
             </motion.p>
           </div>
 
