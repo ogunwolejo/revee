@@ -55,7 +55,7 @@ export default function Home() {
 
   const layoutContent: LayoutContent[] = [
     {
-      bgImages: "/svg/sliderA.svg",
+      bgImages: "/svg/SliderA.svg",
       navigationContent: {
         left: "Canada",
         right: "Nigeria",
@@ -75,7 +75,7 @@ export default function Home() {
       },
     },
     {
-      bgImages: "/svg/sliderB.svg",
+      bgImages: "/svg/SliderB.svg",
       navigationContent: {
         left: "Canada",
         right: "Ghana",
@@ -95,7 +95,7 @@ export default function Home() {
       },
     },
     {
-      bgImages: "/svg/sliderC.svg",
+      bgImages: "/svg/SliderC.svg",
       navigationContent: {
         left: "Nigeria",
         right: "Ghana",
@@ -115,7 +115,7 @@ export default function Home() {
       },
     },
     {
-      bgImages: "/svg/sliderD.svg",
+      bgImages: "/svg/SliderD.svg",
       navigationContent: {
         left: "Nigeria",
         right: "Nigeria",
