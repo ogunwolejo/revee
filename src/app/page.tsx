@@ -63,7 +63,7 @@ export default function Home() {
       phoneFrame: {
         main: {
           amount: "+C$750",
-          flagImg: "/png/canada.png",
+          flagImg: "/png/flags/canada.png",
           positioning: "left",
         },
         transaction: {
