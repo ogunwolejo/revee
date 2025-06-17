@@ -161,13 +161,13 @@ export default function Home() {
     [layoutContent]
   );
 
-  // Change image every 10 seconds
+  // Change image every 5 seconds
   useLayoutEffect(() => {
     const interval = setInterval(() => {
       setPrevLeftLabel(layoutContent[bgIndex].navigationContent.left);
       setPrevRightLabel(layoutContent[bgIndex].navigationContent.right);
       setBgIndex((prevIndex) => (prevIndex + 1) % layoutContent.length);
-    }, 10000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [layoutContent, layoutContent.length, bgIndex]);
