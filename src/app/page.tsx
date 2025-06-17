@@ -4,8 +4,8 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
 import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-client";
 import Image from "next/image";
-//import Script from "next/script";
-import { Fragment, useLayoutEffect, useState } from "react";
+import Script from "next/script";
+import { Fragment, useLayoutEffect, useMemo, useState } from "react";
 import { CountryMoney } from "./components/ui/atoms/country-money";
 import { DownloadAppBtn } from "./components/ui/atoms/download-app-btn";
 import { AppLogo } from "./components/ui/atoms/logo";
@@ -136,6 +136,31 @@ export default function Home() {
     },
   ];
 
+  // prefetched all the images
+  const prefetchScript = useMemo(
+    () => (
+      <Script
+        id="prefetch-images"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            ${layoutContent
+              .map(
+                (content) => `
+              const img${content.bgImages.replace(/\W/g, "_")} = new Image();
+              img${content.bgImages.replace(/\W/g, "_")}.src = '${
+                  content.bgImages
+                }';
+            `
+              )
+              .join("")}
+          `,
+        }}
+      />
+    ),
+    [layoutContent]
+  );
+
   // Change image every 10 seconds
   useLayoutEffect(() => {
     const interval = setInterval(() => {
@@ -150,6 +175,7 @@ export default function Home() {
   return (
     <Fragment>
       <div className="relative min-h-screen border-box">
+        {prefetchScript}
         <div className="absolute inset-0 bg-black/50 z-0">
           <AnimatePresence mode="wait">
             <motion.div
